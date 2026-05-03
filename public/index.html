@@ -1,43 +1,908 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Theodora Ovrisa</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<!-- =========== HOME =========== -->
+<section id="home">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <!-- Background fullscreen -->
+  <div class="hero-bg-img">
+    <img src="background web.jpeg" alt="Background Home">
+    <div class="hero-bg-overlay"></div>
+  </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+  <div class="hero-content">
+    <h1 class="hero-name">Theodora <span class="dim">Ovrisa</span></h1>
+  </div>
+
+  <div class="hero-sub-wrap">
+    <p class="hero-nick">Theo</p>
+    <p class="hero-tagline">Calon <strong>Web Developer</strong> | Aspiring <strong>Fullstack Developer</strong></p>
+  </div>
+
+  <p class="hero-desc">
+    Halo! Saya adalah siswa SMK Negeri 7 Semarang jurusan Informasi Jaringan dan Aplikasi dengan minat di bidang web development.
+    Saat ini saya sedang mempelajari fullstack web development, mulai dari pengembangan tampilan (front-end) hingga pengelolaan sistem (back-end).
+    Saya memiliki semangat untuk terus belajar dan mengembangkan keterampilan di bidang teknologi.
+    Portofolio ini saya buat sebagai tempat untuk menampilkan hasil karya dan proses belajar saya.
+  </p>
+
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- =========== ABOUT =========== -->
+<section id="about">
+  <div class="about-photo-col">
+    <div class="about-deco"></div>
+    <img src="foto teo.jpeg" alt="Foto About" class="about-photo-img">
+  </div>
+
+  <div class="about-content">
+    <div class="section-eyebrow fade-up">Tentang Saya</div>
+    <h2 class="section-title fade-up d1">Who I Am</h2>
+    <div class="about-divider fade-up d1"></div>
+
+    <div class="about-detail">
+      <div class="about-block fade-up d2">
+        <div class="about-block-label">Riwayat Keluarga</div>
+        <p class="about-block-text">Saya lahir di <strong>Semarang, 25 Januari 2009</strong> dan merupakan <strong>anak tunggal</strong>. Saya tumbuh dalam lingkungan keluarga yang selalu mendukung saya untuk belajar dan berkembang, khususnya di bidang teknologi.</p>
+      </div>
+
+      <div class="about-block fade-up d3">
+        <div class="about-block-label">Hobi</div>
+        <div class="about-tags">
+          <span class="about-tag">Coding</span>
+          <span class="about-tag">Desain Grafis</span>
+          <span class="about-tag">Mendengarkan & Bermain Musik</span>
+          <span class="about-tag">Membaca Buku</span>
+          <span class="about-tag">Eksplorasi Hal Baru</span>
+        </div>
+      </div>
+
+      <div class="about-block fade-up d3">
+        <div class="about-block-label">Minat</div>
+        <div class="about-tags">
+          <span class="about-tag">Web Development</span>
+          <span class="about-tag">UI/UX Design</span>
+          <span class="about-tag">Mobile App</span>
+          <span class="about-tag">Networking</span>
+        </div>
+      </div>
+
+      <div class="about-block fade-up d4">
+        <div class="about-block-label">Cita-cita / Tujuan Karier</div>
+        <p class="about-block-text">Saya bercita-cita menjadi <strong>Fullstack Web Developer</strong> yang tidak hanya mampu membangun aplikasi, tetapi juga menciptakan solusi digital yang berdampak. Saat ini, saya berfokus untuk terus belajar dan mempersiapkan diri agar dapat mengikuti program <strong>magang di bidang teknologi</strong> sebagai langkah awal memasuki dunia industri.</p>
+      </div>
+
+      <div class="about-block fade-up d4">
+        <div class="about-block-label">Kelebihan Diri</div>
+        <div class="about-tags">
+          <span class="about-tag">Cepat Belajar</span>
+          <span class="about-tag">Teliti</span>
+          <span class="about-tag">Kreatif</span>
+          <span class="about-tag">Mampu Bekerja dalam Tim</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PENDIDIKAN =========== -->
+<section id="pendidikan">
+  <div class="edu-header">
+    <div class="section-eyebrow fade-up">Latar Belakang</div>
+    <h2 class="section-title center fade-up d1">Riwayat Pendidikan</h2>
+  </div>
+  <div class="edu-list">
+    <div class="edu-line"></div>
+
+    <div class="edu-item fade-up">
+      <div class="edu-left">
+        <div class="edu-dot"></div>
+        <div class="edu-year-badge">2024 – Skrg</div>
+      </div>
+      <div class="edu-right">
+        <h3>SMK Negeri 7 Semarang</h3>
+        <div class="edu-meta">
+          <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Jurusan Informasi Jaringan dan Aplikasi
+          <span class="edu-meta-dot"></span>
+          Semarang, Indonesia
+        </div>
+        <p class="edu-desc">Mempelajari dasar-dasar jaringan komputer, pemrograman, serta pengembangan teknologi informasi dengan fokus pada web development.</p>
+      </div>
+    </div>
+
+    <div class="edu-item fade-up d1">
+      <div class="edu-left">
+        <div class="edu-dot"></div>
+        <div class="edu-year-badge">2021 – 2024</div>
+      </div>
+      <div class="edu-right">
+        <h3>SMP <span class="placeholder-text">Negeri 2 Semarang</span></h3>
+        <div class="edu-meta">
+          <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Sekolah Menengah Pertama
+          <span class="edu-meta-dot"></span>
+          Semarang, Indonesia
+        </div>
+        <p class="edu-desc">Menyelesaikan pendidikan menengah pertama dengan baik serta mulai tertarik pada bidang teknologi.</p>
+      </div>
+    </div>
+
+    <div class="edu-item fade-up d2">
+      <div class="edu-left">
+        <div class="edu-dot"></div>
+        <div class="edu-year-badge">2015 – 2021</div>
+      </div>
+      <div class="edu-right">
+        <h3>SD <span class="placeholder-text">Negeri Sarirejo Kartini</span></h3>
+        <div class="edu-meta">
+          <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Sekolah Dasar
+          <span class="edu-meta-dot"></span>
+          Semarang, Indonesia
+        </div>
+        <p class="edu-desc">Menyelesaikan pendidikan dasar selama 6 tahun dengan hasil yang memuaskan.</p>
+      </div>
+    </div>
+
+    <div class="edu-item fade-up d3">
+      <div class="edu-left">
+        <div class="edu-dot"></div>
+        <div class="edu-year-badge">2013 – 2015</div>
+      </div>
+      <div class="edu-right">
+        <h3>TK <span class="placeholder-text">Tunas Harapan</span></h3>
+        <div class="edu-meta">
+          <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Taman Kanak-kanak
+          <span class="edu-meta-dot"></span>
+          Semarang, Indonesia
+        </div>
+        <p class="edu-desc">Mengikuti pendidikan anak usia dini sebagai dasar pembentukan karakter dan kemampuan dasar.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========== SKILLS =========== -->
+<section id="skills">
+  <div class="skills-inner">
+    <div class="skills-header">
+      <div class="section-eyebrow fade-up">Kemampuan</div>
+      <h2 class="section-title center fade-up d1">Skills</h2>
+    </div>
+
+    <div class="skills-grid">
+      <!-- ---- Web / Programming ---- -->
+      <div class="skill-cat-label">Web &amp; Programming</div>
+
+      <div class="skill-item fade-up">
+        <div class="skill-top"><span class="skill-name">HTML &amp; CSS</span><span class="skill-pct">80%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
+      </div>
+      <div class="skill-item fade-up d1">
+        <div class="skill-top"><span class="skill-name">JavaScript (Dasar)</span><span class="skill-pct">75%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="75"></div></div>
+      </div>
+      <div class="skill-item fade-up d1">
+        <div class="skill-top"><span class="skill-name">PHP (Dasar)</span><span class="skill-pct">50%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="50"></div></div>
+      </div>
+      <div class="skill-item fade-up d2">
+        <div class="skill-top"><span class="skill-name">MySQL (Dasar)</span><span class="skill-pct">55%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="55"></div></div>
+      </div>
+
+      <!-- ---- Networking ---- -->
+      <div class="skill-cat-label">Networking &amp; Tools</div>
+
+      <div class="skill-item fade-up">
+        <div class="skill-top"><span class="skill-name">Cisco Packet Tracer</span><span class="skill-pct">70%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="70"></div></div>
+      </div>
+      <div class="skill-item fade-up d1">
+        <div class="skill-top"><span class="skill-name">Linux (Dasar)</span><span class="skill-pct">50%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="50"></div></div>
+      </div>
+
+      <!-- ---- Design ---- -->
+      <div class="skill-cat-label">Design &amp; Creative</div>
+
+      <div class="skill-item fade-up">
+        <div class="skill-top"><span class="skill-name">Canva</span><span class="skill-pct">80%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
+      </div>
+      <div class="skill-item fade-up d1">
+        <div class="skill-top"><span class="skill-name">Figma (Dasar)</span><span class="skill-pct">60%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="60"></div></div>
+      </div>
+      <div class="skill-item fade-up d2">
+        <div class="skill-top"><span class="skill-name">Video Editing</span><span class="skill-pct">65%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="65"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PORTFOLIO =========== -->
+<section id="portfolio">
+  <div class="portfolio-inner">
+    <div class="portfolio-header">
+      <div class="section-eyebrow fade-up">Karya</div>
+      <h2 class="section-title center fade-up d1">Portfolio</h2>
+      <p class="section-sub fade-up d2">Berikut adalah beberapa karya yang saya kerjakan sebagai bagian dari proses belajar dan pengembangan keterampilan di berbagai bidang teknologi dan kreativitas.</p>
+    </div>
+
+<div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProj('all',this)">Semua</button>
+      <button class="filter-btn" onclick="filterProj('achievements',this)">Achievements</button>
+      <button class="filter-btn" onclick="filterProj('web',this)">Web</button>
+      <button class="filter-btn" onclick="filterProj('desain',this)">Desain</button>
+      <button class="filter-btn" onclick="filterProj('jaringan',this)">Jaringan</button>
+      <button class="filter-btn" onclick="filterProj('lainnya',this)">Lainnya</button>
+    </div>
+
+    <div class="portfolio-grid" id="projGrid">
+
+<!-- ACHIEVEMENTS (6) -->
+<div class="proj-card" data-cat="achievements"
+    data-title="International Science and Invention Fair 2023"
+    data-desc="Mengikuti kompetisi internasional di bidang sains dan inovasi dengan mengembangkan proyek berbasis teknologi. Selain pembuatan konsep, juga melakukan praktik dan pengujian sederhana untuk mendukung hasil penelitian."
+    data-tech="Canva · Microsoft PowerPoint · Google Docs · Eksperimen/Laboratorium Dasar"
+    data-thumb="🏆"
+    data-img="https://drive.google.com/thumbnail?id=1w64_FqiVUpaBBKgLi5snFC6FbapoMInB&sz=w800"
+    data-link="https://drive.google.com/file/d/1w64_FqiVUpaBBKgLi5snFC6FbapoMInB/view?usp=drive_link"
+    data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="https://drive.google.com/thumbnail?id=1w64_FqiVUpaBBKgLi5snFC6FbapoMInB&sz=w800" alt="ISIF 2023"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🏆</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">International Science and Invention Fair 2023</div>
+    <div class="proj-desc">Kompetisi internasional sains dan inovasi berbasis teknologi dengan praktik dan pengujian sederhana.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Achievements</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="achievements"
+    data-title="International Science and Invention Fair 2024"
+    data-desc="Berpartisipasi dalam kompetisi internasional dengan pengembangan proyek yang lebih mendalam, termasuk proses riset, praktik, serta penyempurnaan hasil dan presentasi."
+    data-tech="Canva · PowerPoint · Google Docs · Eksperimen/Laboratorium"
+    data-thumb="🏆"
+    data-img="https://drive.google.com/thumbnail?id=1u0upqrW2Ui2ina_1JrRkR5scz_2VFeWk&sz=w800"
+    data-link="https://drive.google.com/file/d/1u0upqrW2Ui2ina_1JrRkR5scz_2VFeWk/view?usp=drive_link"
+    data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="https://drive.google.com/thumbnail?id=1u0upqrW2Ui2ina_1JrRkR5scz_2VFeWk&sz=w800" alt="ISIF 2024"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🏆</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">International Science and Invention Fair 2024</div>
+    <div class="proj-desc">Kompetisi internasional dengan riset mendalam, praktik, dan penyempurnaan hasil presentasi.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Achievements</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="achievements"
+    data-title="Indonesia International Applied Science Project Olympiad 2023"
+    data-desc="Mengembangkan proyek sains terapan dengan pendekatan berbasis teknologi, termasuk proses penelitian, praktik, serta analisis hasil untuk menyelesaikan suatu permasalahan."
+    data-tech="Canva · Microsoft Office · Google Docs · Praktik/Laboratorium"
+    data-thumb="🔬"
+    data-img="https://drive.google.com/thumbnail?id=1sTyTRWbYfcMW6mlliRfFLFCv_HgBGFBW&sz=w800"
+    data-link="https://drive.google.com/file/d/1sTyTRWbYfcMW6mlliRfFLFCv_HgBGFBW/view?usp=drive_link"
+    data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="https://drive.google.com/thumbnail?id=1sTyTRWbYfcMW6mlliRfFLFCv_HgBGFBW&sz=w800" alt="IIASPO 2023"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🔬</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Indonesia International Applied Science Project Olympiad 2023</div>
+    <div class="proj-desc">Proyek sains terapan berbasis teknologi dengan penelitian, praktik, dan analisis hasil.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Achievements</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="achievements"
+    data-title="Peserta Olimpiade IT ARA 7.0 ITS 2026"
+    data-desc="Berpartisipasi dalam kompetisi IT tingkat nasional yang diselenggarakan oleh ITS. Mengasah kemampuan di bidang teknologi informasi serta memperluas wawasan dan pengalaman kompetitif."
+    data-tech="HTML · CSS · JavaScript · Internet Resources"
+    data-thumb="💻"
+    data-img="https://drive.google.com/thumbnail?id=1PY42w-aWspUK192hjcAqRAgVFC__1NGi&sz=w800"
+    data-link="https://drive.google.com/file/d/1PY42w-aWspUK192hjcAqRAgVFC__1NGi/view?usp=drive_link"
+    data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="https://drive.google.com/thumbnail?id=1PY42w-aWspUK192hjcAqRAgVFC__1NGi&sz=w800" alt="ARA 7.0 ITS 2026"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">💻</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Peserta Olimpiade IT ARA 7.0 ITS 2026</div>
+    <div class="proj-desc">Kompetisi IT tingkat nasional oleh ITS untuk mengasah kemampuan teknologi informasi.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Achievements</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="achievements"
+    data-title="Finalis PENS — Lomba Tingkat Nasional IoT & Networking 2025"
+    data-desc="Berhasil menjadi finalis dalam lomba tingkat nasional di bidang IoT dan jaringan. Mengembangkan solusi berbasis teknologi yang berfokus pada konektivitas dan efisiensi sistem."
+    data-tech="Cisco Packet Tracer · Linux · Networking Tools"
+    data-thumb="🌐"
+    data-img="https://drive.google.com/thumbnail?id=10FlUB7Q06-deRlCQwZ09kJoESGnQDKwK&sz=w800"
+    data-link="https://drive.google.com/file/d/10FlUB7Q06-deRlCQwZ09kJoESGnQDKwK/view?usp=drive_link"
+    data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="https://drive.google.com/thumbnail?id=10FlUB7Q06-deRlCQwZ09kJoESGnQDKwK&sz=w800" alt="PENS IoT Networking 2025"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🌐</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Finalis PENS — IoT & Networking 2025</div>
+    <div class="proj-desc">Finalis lomba nasional IoT & Networking PENS dengan solusi konektivitas dan efisiensi sistem.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Achievements</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="achievements"
+    data-title="Cisco IT Essentials 2025"
+    data-desc="Menyelesaikan pelatihan Cisco IT Essentials yang mencakup dasar-dasar perangkat keras komputer, sistem operasi, serta jaringan."
+    data-tech="Cisco Networking Academy · Virtual Lab"
+    data-thumb="📜"
+    data-img="https://drive.google.com/thumbnail?id=1sCZ7RxYV3hNfChK5iRQAMB03m9FKUj2p&sz=w800"
+    data-link="https://drive.google.com/file/d/1sCZ7RxYV3hNfChK5iRQAMB03m9FKUj2p/view?usp=drive_link"
+    data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="https://drive.google.com/thumbnail?id=1sCZ7RxYV3hNfChK5iRQAMB03m9FKUj2p&sz=w800" alt="Cisco IT Essentials 2025"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">📜</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Cisco IT Essentials 2025</div>
+    <div class="proj-desc">Pelatihan Cisco IT Essentials — hardware, sistem operasi, dan dasar-dasar jaringan komputer.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Achievements</span>
+    </div>
+  </div>
+</div>
+
+<!-- WEB PROJECTS (2) -->
+<div class="proj-card" data-cat="web"
+    data-title="Edu Grafis"
+    data-desc="Website edukasi grafis yang menyajikan materi pembelajaran desain grafis secara interaktif dan menarik."
+    data-tech="HTML · CSS · JavaScript"
+    data-thumb=""
+    data-img="assets/edu-grafis.png"
+    data-link="https://edu-grafiss.vercel.app/"
+    data-link-type="web">
+  <div class="proj-thumb">
+    <img src="assets/edu-grafis.png" alt="Edu Grafis">
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Edu Grafis</div>
+    <div class="proj-desc">Website edukasi grafis dengan materi pembelajaran desain yang interaktif dan menarik.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Web</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="web"
+    data-title="Web Birthday"
+    data-desc="Website ucapan ulang tahun yang dibuat dengan tampilan yang menarik dan interaktif sebagai hadiah digital yang berkesan."
+    data-tech="HTML · CSS · JavaScript"
+    data-thumb=""
+    data-img="assets/web-birthday.png"
+    data-link="https://bdaysmasbie.vercel.app/"
+    data-link-type="web">
+  <div class="proj-thumb">
+    <img src="assets/web-birthday.png" alt="Web Birthday">
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Web Birthday</div>
+    <div class="proj-desc">Website ucapan ulang tahun interaktif sebagai hadiah digital yang berkesan.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Web</span>
+    </div>
+  </div>
+</div>
+
+<!-- DESAIN PROJECTS (3) -->
+<div class="proj-card" data-cat="desain"
+  data-title="Desain UI/UX Aplikasi SORAI"
+  data-desc="Desain UI/UX aplikasi SORAI untuk pengelolaan sampah berbasis digital. Mencakup wireframe, mockup, dan prototype interaktif yang berfokus pada kemudahan pengguna."
+  data-tech="Figma"
+  data-thumb=""
+  data-img="assets/sorai.png"
+  data-link="https://drive.google.com/file/d/17SrwV1ZmOzA_LQPCOIUOSjzMArhLkoSJ/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/sorai.png" alt="Desain UI/UX Aplikasi SORAI"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">♻️</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Desain UI/UX Aplikasi SORAI</div>
+    <div class="proj-desc">Desain UI/UX aplikasi pengelolaan sampah berbasis digital dengan prototype interaktif.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Desain</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="desain"
+  data-title="UI/UX Website Portfolio Pribadi"
+  data-desc="Desain dan pengembangan UI/UX website portfolio pribadi. Mencakup proses desain di Figma hingga implementasi front-end yang responsif dan modern."
+  data-tech="Figma · HTML · CSS"
+  data-thumb=""
+  data-img="assets/portfolio-uiux.png"
+  data-link="https://drive.google.com/file/d/17SrwV1ZmOzA_LQPCOIUOSjzMArhLkoSJ/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/portfolio-uiux.png" alt="UI/UX Website Portfolio Pribadi"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🖌️</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">UI/UX Website Portfolio Pribadi</div>
+    <div class="proj-desc">Desain dan pengembangan UI/UX website portfolio pribadi yang responsif dan modern.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Desain</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="desain"
+  data-title="Custom Cup Design"
+  data-desc="Desain produk kreatif berupa custom cup dengan konsep visual yang unik dan menarik. Dibuat sebagai karya desain produk yang memadukan estetika dan fungsi."
+  data-tech="Canva"
+  data-thumb=""
+  data-img="assets/custom-cup.png"
+  data-link="https://drive.google.com/file/d/1AMl9EmQFNzMnJNUqeecGhxmiCZ-nGv9Z/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/custom-cup.png" alt="Custom Cup Design"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">☕</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Custom Cup Design</div>
+    <div class="proj-desc">Desain produk kreatif custom cup dengan konsep visual yang unik dan menarik.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Desain</span>
+    </div>
+  </div>
+</div>
+
+<!-- JARINGAN PROJECTS (4) -->
+<div class="proj-card" data-cat="jaringan"
+  data-title="Routing Dynamic OSPF"
+  data-desc="Implementasi routing dinamis menggunakan protokol OSPF (Open Shortest Path First) untuk menghubungkan beberapa jaringan secara otomatis dan efisien."
+  data-tech="Mikrotik · RouterOS"
+  data-thumb=""
+  data-img="assets/ospf.png"
+  data-link="https://drive.google.com/file/d/1Eja9OJFaCuTgpUJZR77xu5K7JksOnmst/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/ospf.png" alt="Routing Dynamic OSPF"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">📡</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Routing Dynamic OSPF</div>
+    <div class="proj-desc">Implementasi routing dinamis OSPF untuk menghubungkan beberapa jaringan secara otomatis.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Jaringan</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="jaringan"
+  data-title="Konfigurasi BGP 3 Router Mikrotik"
+  data-desc="Konfigurasi routing dinamis Border Gateway Protocol (BGP) menggunakan 3 router dengan RouterBoard Mikrotik untuk menghubungkan antar jaringan yang berbeda."
+  data-tech="Mikrotik · RouterBoard · BGP"
+  data-thumb=""
+  data-img="assets/bgp-mikrotik.png"
+  data-link="https://drive.google.com/file/d/1n0ZFjatyc14isgsoLtRWVB8nMzjNnzhy/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/bgp-mikrotik.png" alt="Konfigurasi BGP 3 Router Mikrotik"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🔌</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Konfigurasi BGP 3 Router Mikrotik</div>
+    <div class="proj-desc">Konfigurasi routing dinamis BGP dengan 3 RouterBoard Mikrotik antar jaringan berbeda.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Jaringan</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="jaringan"
+  data-title="Routing Dynamic BGP"
+  data-desc="Implementasi routing dinamis Border Gateway Protocol (BGP) untuk menghubungkan beberapa autonomous system dalam jaringan yang lebih kompleks."
+  data-tech="Mikrotik · RouterOS · BGP"
+  data-thumb=""
+  data-img="assets/bgp.png"
+  data-link="https://drive.google.com/file/d/1k5QBEcYeuQJc1LX8pJ0eKcNA_rHEM5ts/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/bgp.png" alt="Routing Dynamic BGP"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🌐</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Routing Dynamic BGP</div>
+    <div class="proj-desc">Implementasi routing dinamis BGP untuk menghubungkan beberapa autonomous system.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Jaringan</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="jaringan"
+  data-title="Konfigurasi Routing Dinamis 3 Router Mikrotik"
+  data-desc="Konfigurasi routing dinamis menggunakan 3 router dengan RouterBoard Mikrotik untuk membangun jaringan yang saling terhubung secara otomatis dan efisien."
+  data-tech="Mikrotik · RouterBoard · RouterOS"
+  data-thumb=""
+  data-img="assets/routing-mikrotik.png"
+  data-link="https://drive.google.com/file/d/1OlY0pSGihUs-ZocGKsxbcT_1-iWLjZbc/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/routing-mikrotik.png" alt="Konfigurasi Routing Dinamis 3 Router Mikrotik"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🖥️</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Konfigurasi Routing Dinamis 3 Router Mikrotik</div>
+    <div class="proj-desc">Konfigurasi routing dinamis 3 RouterBoard Mikrotik untuk jaringan yang terhubung otomatis.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Jaringan</span>
+    </div>
+  </div>
+</div>
+
+<!-- LAINNYA PROJECTS (4) -->
+<div class="proj-card" data-cat="lainnya"
+  data-title="Innovating Egg Shells and Spinach Stems as A Way to Reduce Food Waste"
+  data-desc="Karya ilmiah tentang inovasi pemanfaatan cangkang telur dan batang bayam untuk mengurangi limbah makanan sekaligus menambah nilai gizi pada dessert Panacotta ramah anak."
+  data-tech="Penelitian · Karya Ilmiah"
+  data-thumb=""
+  data-img="assets/egg-spinach.png"
+  data-link="https://drive.google.com/file/d/1YINJPxfRH4gSLfwV4FuPXJOMlntWv0Rd/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/egg-spinach.png" alt="Innovating Egg Shells and Spinach Stems"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🥚</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Innovating Egg Shells & Spinach Stems to Reduce Food Waste</div>
+    <div class="proj-desc">Inovasi cangkang telur dan batang bayam sebagai solusi food waste dengan nilai gizi tinggi.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Lainnya</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="lainnya"
+  data-title="Innovation of Egg Shells, Spinach Stems and Butterfly Pea Flowers"
+  data-desc="Karya ilmiah tentang inovasi pemanfaatan cangkang telur, batang bayam, dan bunga telang sebagai solusi kreatif untuk mengurangi limbah makanan (food waste) dan meningkatkan nutrisi untuk mengurangi stunting."
+  data-tech="Penelitian · Karya Ilmiah"
+  data-thumb=""
+  data-img="assets/egg-shells.png"
+  data-link="https://drive.google.com/file/d/1GSBA3y-yEZyBGjEiTZdN7JhEbpEvpV1G/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/egg-shells.png" alt="Innovation of Egg Shells"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🌿</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Innovation of Egg Shells, Spinach & Butterfly Pea Flowers</div>
+    <div class="proj-desc">Inovasi pemanfaatan limbah bahan makanan untuk mengurangi food waste dan stunting.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Lainnya</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="lainnya"
+  data-title="Smart Food Safety Detector"
+  data-desc="Proyek Smart Food Safety Detector sebagai solusi inovatif untuk pencegahan keracunan makanan menggunakan teknologi pendeteksi keamanan pangan berbasis smart system."
+  data-tech="IoT · Penelitian · Karya Ilmiah"
+  data-thumb=""
+  data-img="assets/food-safety.png"
+  data-link="https://drive.google.com/file/d/1j0YfJEir4FTF4O2pz-6gvZXi2rGAK4-t/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/food-safety.png" alt="Smart Food Safety Detector"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🔬</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">Smart Food Safety Detector</div>
+    <div class="proj-desc">Solusi inovatif pencegahan keracunan makanan berbasis smart system.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Lainnya</span>
+    </div>
+  </div>
+</div>
+
+<div class="proj-card" data-cat="lainnya"
+  data-title="PATRIOT — Perangkat Pendeteksi Keamanan Makanan Berbasis IoT"
+  data-desc="Proyek FTR SMKN 7 Semarang berupa perangkat pendeteksi keamanan makanan berbasis IoT (PATRIOT) sebagai sistem monitoring cerdas untuk mencegah bahaya keracunan makanan."
+  data-tech="IoT · FTR · Sistem Monitoring"
+  data-thumb=""
+  data-img="assets/patriot.png"
+  data-link="https://drive.google.com/file/d/1PeyQLw1BTmAWYcfiNAETvOJeHAHmvuGk/view?usp=drive_link"
+  data-link-type="drive">
+  <div class="proj-thumb">
+    <img src="assets/patriot.png" alt="PATRIOT IoT"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="proj-thumb-ph" style="display:none">🛡️</div>
+  </div>
+  <div class="proj-body">
+    <div class="proj-name">PATRIOT — Perangkat Pendeteksi Keamanan Makanan Berbasis IoT</div>
+    <div class="proj-desc">Sistem monitoring cerdas berbasis IoT untuk mendeteksi keamanan makanan.</div>
+    <div class="proj-footer">
+      <span class="proj-cat">Lainnya</span>
+    </div>
+  </div>
+</div>
+
+    </div>
+</section>
+
+<!-- =========== POPUP MODAL =========== -->
+<div class="popup-overlay" id="popupOverlay" onclick="closePopupOutside(event)">
+  <div class="popup-modal" id="popupModal">
+    <button class="popup-close" onclick="closePopup()">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="popup-thumb" id="popupThumb"></div>
+    <div class="popup-body">
+      <div class="popup-cat-badge" id="popupCat"></div>
+      <h3 class="popup-title" id="popupTitle"></h3>
+      <p class="popup-desc" id="popupDesc"></p>
+      <div class="popup-tech-wrap">
+        <div class="popup-tech-label">Tech / Tools</div>
+        <div class="popup-tech" id="popupTech"></div>
+      </div>
+      <a class="popup-action-btn" id="popupBtn" href="#" target="_blank">
+        <span id="popupBtnText">Lihat Karya</span>
+        <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- =========== CV =========== -->
+<section id="cv">
+  <div class="cv-inner">
+    <div class="cv-header-section">
+      <div class="section-eyebrow fade-up">Curriculum Vitae</div>
+      <h2 class="section-title center fade-up d1">CV</h2>
+    </div>
+
+    <!-- CV DOWNLOAD BUTTON -->
+    <div class="cv-download-wrap fade-up d2">
+      <p class="cv-download-hint">Unduh CV saya dalam format PDF</p>
+      <a class="cv-download-btn" href="assets/CV WEB THEODORA.png" download="CV WEB THEODORA.png" id="cvDownloadBtn">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Unduh CV (PDF)
+      </a>
+    </div>
+
+    <div class="cv-card fade-up">
+
+      <!-- CV TOP STRIP -->
+      <div class="cv-top">
+        <div class="cv-avatar">
+          <img src="foto teo.jpeg" alt="Foto CV" style="display:block; width:100%; height:100%; object-fit:cover; object-position:60% top;">
+          <span class="cv-avatar-ph" style="display:none">🧑‍💻</span>
+        </div>
+        <div>
+          <div class="cv-top-name">Theodora Ovrisa Ersalina</div>
+          <div class="cv-top-role">Siswa SMK N 7 SEMARANG — Sistem Informasi Jaringan dan Aplikasi</div>
+          <div class="cv-top-contacts">
+            <span class="cv-top-contact">
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+              ovrisatheodora@gmail.com
+            </span>
+            <span class="cv-top-contact">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.69A2 2 0 012.18 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.1a16 16 0 006 6l1.46-1.46a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              0898 - 3930 - 103
+            </span>
+            <span class="cv-top-contact">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Jl. Kp. Gebang Anom No.120 Rt.1/Rw.1 Kota Semarang, Jawa Tengah
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CV BODY -->
+      <div class="cv-body">
+
+        <!-- KOLOM KIRI -->
+        <div class="cv-col">
+          <div class="cv-section">
+            <div class="cv-section-title">Data Pribadi</div>
+            <div class="cv-row"><div class="cv-row-label">Nama Lengkap</div><div class="cv-row-val">Theodora Ovrisa Ersalina</div></div>
+            <div class="cv-row"><div class="cv-row-label">Tempat, Tanggal Lahir</div><div class="cv-row-val">Semarang, 25 Januari 2009</div></div>
+            <div class="cv-row"><div class="cv-row-label">Jenis Kelamin</div><div class="cv-row-val">Perempuan</div></div>
+            <div class="cv-row"><div class="cv-row-label">Agama</div><div class="cv-row-val">Katolik</div></div>
+            <div class="cv-row"><div class="cv-row-label">Alamat</div><div class="cv-row-val">Semarang, Jawa Tengah</div></div>
+            <div class="cv-row"><div class="cv-row-label">No. HP / WhatsApp</div><div class="cv-row-val">0898 - 3930 - 103</div></div>
+            <div class="cv-row"><div class="cv-row-label">Email</div><div class="cv-row-val">ovrisatheodora@gmail.com</div></div>
+          </div>
+
+          <div class="cv-section">
+            <div class="cv-section-title">Skills</div>
+            <div class="cv-skill-item">
+              <div class="cv-skill-row"><span class="cv-skill-name">HTML &amp; CSS</span><span class="cv-skill-pct">80%</span></div>
+              <div class="cv-skill-track"><div class="cv-skill-fill" data-pct="80"></div></div>
+            </div>
+            <div class="cv-skill-item">
+              <div class="cv-skill-row"><span class="cv-skill-name">JavaScript</span><span class="cv-skill-pct">75%</span></div>
+              <div class="cv-skill-track"><div class="cv-skill-fill" data-pct="75"></div></div>
+            </div>
+            <div class="cv-skill-item">
+              <div class="cv-skill-row"><span class="cv-skill-name">Canva</span><span class="cv-skill-pct">80%</span></div>
+              <div class="cv-skill-track"><div class="cv-skill-fill" data-pct="80"></div></div>
+            </div>
+            <div class="cv-skill-item">
+              <div class="cv-skill-row"><span class="cv-skill-name">Figma</span><span class="cv-skill-pct">60%</span></div>
+              <div class="cv-skill-track"><div class="cv-skill-fill" data-pct="60"></div></div>
+            </div>
+            <div class="cv-skill-item">
+              <div class="cv-skill-row"><span class="cv-skill-name">Mikrotik</span><span class="cv-skill-pct">70%</span></div>
+              <div class="cv-skill-track"><div class="cv-skill-fill" data-pct="70"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KOLOM KANAN -->
+        <div class="cv-col">
+          <div class="cv-section">
+            <div class="cv-section-title">Pendidikan</div>
+            <div class="cv-edu-item">
+              <div class="cv-edu-year">2024 – Sekarang</div>
+              <div class="cv-edu-name">SMK Negeri 7 Semarang</div>
+              <div class="cv-edu-sub">Jurusan Sistem Informasi Jaringan dan Aplikasi</div>
+            </div>
+            <div class="cv-edu-item">
+              <div class="cv-edu-year">2021 – 2024</div>
+              <div class="cv-edu-name">SMP Negeri 2 Semarang</div>
+            </div>
+            <div class="cv-edu-item">
+              <div class="cv-edu-year">2015 – 2021</div>
+              <div class="cv-edu-name">SD Negeri Sarirejo Kartini</div>
+            </div>
+            <div class="cv-edu-item">
+              <div class="cv-edu-year">2013 – 2015</div>
+              <div class="cv-edu-name">TK Tunas Harapan</div>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <div class="cv-section-title">Pengalaman / Karya Ilmiah</div>
+            <div class="cv-exp-item">
+              <div class="cv-exp-year">2023</div>
+              <div class="cv-exp-title">Innovating Egg Shells and Spinach Stems as A Way to Reduce Food Waste</div>
+              <div class="cv-exp-sub">Karya Ilmiah — Adding Nutritional Value to A Kids Friendly Panacotta</div>
+            </div>
+            <div class="cv-exp-item">
+              <div class="cv-exp-year">2024</div>
+              <div class="cv-exp-title">Innovation of Egg Shells, Spinach Stems and Butterfly Pea Flowers</div>
+              <div class="cv-exp-sub">Karya Ilmiah — Reduce Food Waste & Increase Nutrition to Reduce Stunting Rates with Panacotta</div>
+            </div>
+            <div class="cv-exp-item">
+              <div class="cv-exp-year">2025</div>
+              <div class="cv-exp-title">IT Essentials</div>
+              <div class="cv-exp-sub">Kursus — Cisco Networking Academy</div>
+            </div>
+            <div class="cv-exp-item">
+              <div class="cv-exp-year">2025</div>
+              <div class="cv-exp-title">Smart Food Safety Detector</div>
+              <div class="cv-exp-sub">Internet of Things — Pencegahan Keracunan Makanan</div>
+            </div>
+            <div class="cv-exp-item">
+              <div class="cv-exp-year">2026</div>
+              <div class="cv-exp-title">PATRIOT — Perangkat Pendeteksi Keamanan Makanan Berbasis IoT</div>
+              <div class="cv-exp-sub">FTR & Sistem Pengukuran dan Monitoring Cerdas</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CONTACT =========== -->
+<section id="contact">
+  <div class="contact-eyebrow fade-up">Hubungi Saya</div>
+  <h2 class="contact-title fade-up d1">
+    Let's <span class="outline">Connect</span>
+  </h2>
+  <p class="contact-body fade-up d2">
+    Interested in collaborating or have any questions?<br>Feel free to reach out — I’d love to connect!
+  </p>
+  <div class="contact-links fade-up d3">
+    <a class="contact-link" href="mailto:ovrisatheodora@gmail.com">
+      <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+      ovrisatheodora@gmail.com
+    </a>
+    <a class="contact-link" href="https://www.linkedin.com/in/theodora-ovrisa-7221743b0?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a class="contact-link" href="https://github.com/ovrisatheodora-ctrl" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+      GitHub
+    </a>
+    <a class="contact-link" href="https://www.instagram.com/theodoraovri?igsh=ZzlhdGk5MHBmaWRi" target="_blank">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      Instagram
+    </a>
+  </div>
+</section>
+
+<!-- =========== BOTTOM NAV =========== -->
+<nav class="bottom-nav">
+  <button class="bnav-btn active" onclick="goTo('home')" title="Home">
+    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+  </button>
+  <button class="bnav-btn" onclick="goTo('about')" title="About">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+  </button>
+  <button class="bnav-btn" onclick="goTo('pendidikan')" title="Pendidikan">
+    <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+  </button>
+  <button class="bnav-btn" onclick="goTo('skills')" title="Skills">
+    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+  </button>
+  <button class="bnav-btn" onclick="goTo('portfolio')" title="Portfolio">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+  </button>
+  <button class="bnav-btn" onclick="goTo('cv')" title="CV">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+  </button>
+  <div class="bnav-div"></div>
+  <button class="bnav-btn" onclick="toggleTheme()" title="Ganti Tema">
+    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+  </button>
+</nav>
+
+<script src="js/script.js"></script>
+</body>
 </html>
