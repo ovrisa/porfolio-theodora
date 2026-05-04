@@ -7,8 +7,15 @@
    MARQUEE
    ================================================ */
 const marqueeSkills = [
-  'HTML & CSS', 'JavaScript', 'Canva', 'Cisco Packet Tracer',
-  'Figma', 'PHP', 'MySQL', 'Video Editing', 'UI/UX', 'Next.js', 'TypeScript'
+  'HTML & CSS',
+  'JavaScript',
+  'Figma',
+  'Canva',
+  'UI/UX Design',
+  'Responsive Design',
+  'Basic Programming',
+  'Web Design',
+  'Problem Solving'
 ];
 
 const marqueeTrack = document.getElementById('marqueeTrack');
