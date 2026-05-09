@@ -2532,8 +2532,36 @@ body {
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
   .cv-body { grid-template-columns: 1fr; }
   .cv-top { padding: 28px; }
+
+  /* FIX PENDIDIKAN MOBILE */
+  .edu-list { padding-left: 0; }
+  .edu-line { left: 7px; }
+  .edu-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 0 0 40px 24px;
+    position: relative;
+  }
+  .edu-left {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  .edu-dot {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    transform: translateX(-50%);
+  }
+  .edu-meta {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
 }
 @media (max-width: 600px) {
+  .edu-year-badge { font-size: 10px; padding: 4px 10px; }
+  .edu-right h3   { font-size: 15px; }
+  .edu-desc       { font-size: 13px; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
   .hero-name { letter-spacing: -2px; }
   .hero-photo-circle { width: 280px; height: 280px; }
