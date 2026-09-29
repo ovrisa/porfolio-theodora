@@ -1,8 +1,24 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+beforeEach(() => {
+  window.localStorage.clear();
+  document.documentElement.lang = 'id';
+});
+
+test('renders language controls', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  expect(screen.getByRole('button', { name: 'Bahasa Indonesia' })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'English' })).toBeInTheDocument();
+});
+
+test('switches and persists the selected language', () => {
+  render(<App />);
+
+  fireEvent.click(screen.getByRole('button', { name: 'English' }));
+
+  expect(document.documentElement.lang).toBe('en');
+  expect(window.localStorage.getItem('language')).toBe('en');
+  expect(screen.getByRole('button', { name: 'English' })).toHaveAttribute('aria-pressed', 'true');
 });

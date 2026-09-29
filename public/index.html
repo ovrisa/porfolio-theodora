@@ -1,43 +1,2193 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Theodora Ovrisa</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* ================================================
+   TEMA: DARK & LIGHT
+   ================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --bg2: #111;
+  --bg3: #1c1c1c;
+  --text: #f0f0f0;
+  --text2: #aaa;
+  --text3: #555;
+  --border: #252525;
+  --card: #141414;
+  --accent: #ffffff;
+  --accent-inv: #0a0a0a;
+  --hero-bg: #0a0a0a;
+  --bnav-bg: rgba(18, 18, 18, 0.94);
+  --bnav-shadow: rgba(0, 0, 0, 0.6);
+  --skill-track: #1e1e1e;
+  --cv-bg: #0f0f0f;
+  --cv-label: #666;
+  --sun: block;
+  --moon: none;
+  --popup-bg: #161616;
+  --popup-overlay: rgba(0,0,0,0.85);
+}
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+[data-theme="light"] {
+  --bg: #fafafa;
+  --bg2: #f0f0f0;
+  --bg3: #e4e4e4;
+  --text: #141414;
+  --text2: #666;
+  --text3: #aaa;
+  --border: #e0e0e0;
+  --card: #ffffff;
+  --accent: #0a0a0a;
+  --accent-inv: #ffffff;
+  --hero-bg: #0a0a0a;
+  --bnav-bg: rgba(255, 255, 255, 0.94);
+  --bnav-shadow: rgba(0, 0, 0, 0.10);
+  --skill-track: #e8e8e8;
+  --cv-bg: #f5f5f5;
+  --cv-label: #999;
+  --sun: none;
+  --moon: block;
+  --popup-bg: #ffffff;
+  --popup-overlay: rgba(0,0,0,0.6);
+}
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+/* ================================================
+   BASE
+   ================================================ */
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+.placeholder-text {
+  color: var(--text3);
+  font-style: italic;
+}
+
+/* ================================================
+   HERO
+   ================================================ */
+#home {
+  min-height: 100vh;
+  background: var(--hero-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  animation: heroZoom 8s ease-out forwards;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.08); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 40px;
+  animation: fadeUp 0.9s 0.2s both;
+}
+
+.hero-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(36px, 8vw, 136px);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -4px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.hero-name .dim { color: rgba(255, 255, 255, 0.22); }
+
+.hero-sub-wrap {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeUp 0.9s 0.45s both;
+}
+
+.hero-nick {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.hero-tagline {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.hero-tagline strong { color: rgba(255, 255, 255, 0.92); }
+
+.hero-desc {
+  position: relative;
+  z-index: 2;
+  margin-top: 20px;
+  max-width: 480px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.75;
+  animation: fadeUp 0.9s 0.65s both;
+  padding: 0 24px;
+}
+
+/* ================================================
+   MARQUEE
+   ================================================ */
+.marquee-bar {
+  background: var(--hero-bg);
+  border-top: 1px solid #1e1e1e;
+  padding: 16px 0;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 22px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+  white-space: nowrap;
+}
+
+.marquee-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ================================================
+   ABOUT
+   ================================================ */
+#about {
+  background: var(--bg);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 100vh;
+  transition: background 0.3s;
+}
+
+.about-photo-col {
+  width: 36%;
+  min-width: 280px;
+  background: var(--bg2);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+
+.about-photo-col img {
+  width: 75%;
+  height: auto;
+  max-height: 75%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(100%);
+  display: block;
+  align-self: center;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.5s ease;
+}
+
+.about-photo-col img.foto-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-photo-col:hover img { filter: grayscale(0%); }
+
+.about-deco {
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--bg3);
+  opacity: 0.5;
+}
+
+.about-content {
+  flex: 1;
+  min-width: 0;
+  padding: 80px 80px;
+}
+
+/* ================================================
+   SHARED SECTION HELPERS
+   ================================================ */
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: var(--text);
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.section-title.center { text-align: center; }
+
+.section-sub {
+  font-size: 14px;
+  color: var(--text2);
+  margin-top: 8px;
+  text-align: center;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 28px;
+}
+
+.about-block { margin-bottom: 22px; }
+
+.about-block-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 8px;
+}
+
+.about-block-text {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.8;
+}
+
+.about-block-text strong { color: var(--text); font-weight: 600; }
+
+.about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+.about-tag {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 12px;
+  color: var(--text2);
+  font-weight: 500;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  cursor: default;
+}
+
+.about-tag:hover {
+  background: var(--accent);
+  color: var(--accent-inv);
+  border-color: var(--accent);
+}
+
+/* ================================================
+   PENDIDIKAN (Timeline)
+   ================================================ */
+#pendidikan {
+  background: var(--bg);
+  padding: 96px 80px;
+  border-top: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+.edu-header { text-align: center; margin-bottom: 72px; }
+
+.edu-list {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.edu-line {
+  position: absolute;
+  left: 60px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.edu-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 32px;
+  padding: 0 0 52px;
+  position: relative;
+}
+
+.edu-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.edu-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.edu-year-badge {
+  background: var(--accent);
+  color: var(--accent-inv);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.edu-right h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.edu-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text2);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.edu-meta svg { flex-shrink: 0; }
+
+.edu-meta-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text3);
+}
+
+.edu-desc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+/* ================================================
+   SKILLS
+   ================================================ */
+#skills {
+  background: var(--bg);
+  padding: 96px 80px;
+  border-top: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+.skills-inner { max-width: 1000px; margin: 0 auto; }
+.skills-header { text-align: center; margin-bottom: 64px; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 64px;
+}
+
+.skill-cat-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-weight: 700;
+  margin: 28px 0 12px;
+  grid-column: 1 / -1;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.skill-item { margin-bottom: 4px; }
+
+.skill-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.skill-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.skill-pct  { font-size: 12px; color: var(--text3); font-weight: 500; }
+
+.skill-track {
+  height: 6px;
+  background: var(--skill-track);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 100px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ================================================
+   PORTFOLIO
+   ================================================ */
+#portfolio {
+  background: var(--bg);
+  padding: 96px 80px;
+  border-top: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+.portfolio-inner { max-width: 1100px; margin: 0 auto; }
+.portfolio-header { text-align: center; margin-bottom: 40px; }
+
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 28px 0 44px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover { border-color: var(--accent); color: var(--text); }
+.filter-btn.active { background: var(--accent); color: var(--accent-inv); border-color: var(--accent); }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.proj-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s, border-color 0.3s;
+}
+
+.proj-card.visible { opacity: 1; transform: translateY(0); }
+.proj-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.2); border-color: var(--text3); }
+
+.proj-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg2);
+  overflow: hidden;
+}
+
+.proj-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.4s ease;
+}
+
+.proj-card:hover .proj-thumb img { transform: scale(1.04); }
+
+.proj-thumb-ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+}
+
+.proj-body { padding: 16px 18px 18px; }
+.proj-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.proj-desc { font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 14px; }
+
+.proj-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.proj-cat {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 3px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text2);
+}
+
+.proj-open-hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text3);
+}
+
+.proj-open-hint svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ================================================
+   POPUP MODAL
+   ================================================ */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--popup-overlay);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.popup-overlay.active { opacity: 1; pointer-events: all; }
+
+.popup-modal {
+  background: var(--popup-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.popup-overlay.active .popup-modal { transform: translateY(0) scale(1); }
+
+.popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: var(--text2);
+  transition: all 0.2s;
+}
+
+.popup-close:hover { background: var(--accent); color: var(--accent-inv); border-color: var(--accent); }
+
+.popup-close svg {
+  width: 16px; height: 16px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round;
+}
+
+.popup-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  background: var(--bg3);
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top;
+  border-radius: 20px 20px 0 0;
+}
+
+.popup-thumb-emoji { font-size: 72px; }
+.popup-body { padding: 28px 36px 36px; }
+
+.popup-cat-badge {
+  display: inline-block;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 3px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text2);
+  margin-bottom: 14px;
+}
+
+.popup-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.popup-desc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.popup-tech-wrap { margin-bottom: 32px; }
+
+.popup-tech-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 10px;
+}
+
+.popup-tech { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.popup-tech-tag {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 5px 16px;
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.popup-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: var(--accent-inv);
+  text-decoration: none;
+  border-radius: 100px;
+  padding: 14px 32px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: opacity 0.2s, transform 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.popup-action-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.popup-action-btn svg {
+  width: 14px; height: 14px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ================================================
+   CV
+   ================================================ */
+#cv {
+  background: var(--cv-bg);
+  padding: 96px 80px;
+  border-top: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+.cv-inner { max-width: 900px; margin: 0 auto; }
+.cv-header-section { text-align: center; margin-bottom: 32px; }
+
+.cv-download-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.cv-download-hint { font-size: 13px; color: var(--text2); }
+
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--accent);
+  color: var(--accent-inv);
+  text-decoration: none;
+  border-radius: 100px;
+  padding: 13px 30px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: opacity 0.2s, transform 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.cv-download-btn:hover { opacity: 0.82; transform: translateY(-2px); }
+
+.cv-download-btn svg {
+  width: 15px; height: 15px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.cv-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cv-top {
+  background: var(--accent);
+  color: var(--accent-inv);
+  padding: 36px 44px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.cv-avatar {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 3px solid rgba(128,128,128,0.3);
+  position: relative;
+}
+
+.cv-avatar img {
+  position: absolute;
+  width: 150%; height: 100%;
+  object-fit: cover;
+  object-position: 60% top;
+  left: 0.3%;
+}
+
+.cv-avatar-ph {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 44px;
+  background: rgba(128,128,128,0.15);
+}
+
+.cv-top-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px; font-weight: 800;
+  letter-spacing: -1px; margin-bottom: 4px;
+}
+
+.cv-top-role { font-size: 13px; opacity: 0.6; margin-bottom: 10px; }
+.cv-top-contacts { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.cv-top-contact {
+  font-size: 12px; opacity: 0.65;
+  display: flex; align-items: center; gap: 5px;
+}
+
+.cv-top-contact svg {
+  width: 13px; height: 13px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.cv-body {
+  padding: 36px 44px;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+}
+
+.cv-section { margin-bottom: 28px; }
+
+.cv-section-title {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 14px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+
+.cv-row { margin-bottom: 12px; }
+.cv-row-label { font-size: 10px; color: var(--cv-label); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 2px; }
+.cv-row-val   { font-size: 13px; color: var(--text); font-weight: 500; }
+
+.cv-edu-item { margin-bottom: 16px; }
+.cv-edu-year { font-size: 10px; color: var(--text3); font-weight: 700; letter-spacing: 1px; margin-bottom: 3px; }
+.cv-edu-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.cv-edu-sub  { font-size: 12px; color: var(--text2); }
+
+.cv-exp-item { margin-bottom: 16px; padding-left: 12px; border-left: 2px solid var(--border); }
+.cv-exp-year  { font-size: 10px; color: var(--text3); font-weight: 700; letter-spacing: 1px; margin-bottom: 2px; }
+.cv-exp-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.cv-exp-sub   { font-size: 12px; color: var(--text2); }
+
+.cv-skill-item { margin-bottom: 12px; }
+.cv-skill-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.cv-skill-name { font-size: 12px; color: var(--text); font-weight: 600; }
+.cv-skill-pct  { font-size: 11px; color: var(--text3); }
+
+.cv-skill-track {
+  height: 4px; background: var(--skill-track);
+  border-radius: 100px; overflow: hidden;
+}
+
+.cv-skill-fill {
+  height: 100%; background: var(--accent);
+  border-radius: 100px; width: 0;
+  transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ================================================
+   CONTACT
+   ================================================ */
+#contact {
+  background: #0a0a0a;
+  padding: 110px 80px;
+  text-align: center;
+}
+
+.contact-eyebrow {
+  font-size: 10px; letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 16px; font-weight: 600;
+}
+
+.contact-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(44px, 7vw, 90px);
+  font-weight: 800; letter-spacing: -3px;
+  line-height: 0.92; margin-bottom: 28px; color: #fff;
+}
+
+.contact-title .outline {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.35);
+  color: transparent;
+}
+
+.contact-body {
+  font-size: 15px;
+  color: rgba(255,255,255,0.45);
+  max-width: 440px;
+  margin: 0 auto 44px;
+  line-height: 1.7;
+}
+
+.contact-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+.contact-link {
+  display: flex; align-items: center; gap: 7px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 100px; padding: 11px 22px;
+  font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: all 0.25s; background: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.contact-link:hover { background: #fff; color: #0a0a0a; border-color: #fff; }
+
+.contact-link svg {
+  width: 14px; height: 14px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ================================================
+   BOTTOM NAV
+   ================================================ */
+.bottom-nav {
+  position: fixed;
+  bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--bnav-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 8px 16px;
+  display: flex; align-items: center; gap: 2px;
+  z-index: 999;
+  box-shadow: 0 8px 32px var(--bnav-shadow);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+#root { display: flex; align-items: center; gap: 6px; }
+
+.language-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 64px;
+  height: 32px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: var(--bg2);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.language-switch::before {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 26px;
+  height: 24px;
+  border-radius: 100px;
+  background: var(--accent);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  content: "";
+  will-change: transform;
+  transition: transform 0.48s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease;
+}
+
+.language-switch.is-en::before { transform: translateX(30px); }
+.language-switch:active::before { transform: scale(0.9); }
+.language-switch.is-en:active::before { transform: translateX(30px) scale(0.9); }
+
+.language-switch button {
+  position: relative;
+  z-index: 1;
+  width: 50%;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--text2);
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.22s ease, transform 0.22s ease;
+}
+
+.language-switch button[aria-pressed="true"] {
+  color: var(--accent-inv);
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .language-switch,
+  .language-switch::before,
+  .language-switch button { transition-duration: 0.01ms; }
+}
+
+.bnav-btn {
+  width: 40px; height: 40px;
+  border-radius: 50%; border: none;
+  background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text2); transition: all 0.2s;
+}
+
+.bnav-btn:hover, .bnav-btn.active { background: var(--accent); color: var(--accent-inv); }
+
+.bnav-btn svg {
+  width: 16px; height: 16px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.bnav-div { width: 1px; height: 20px; background: var(--border); margin: 0 3px; }
+
+.icon-sun  { display: var(--sun); }
+.icon-moon { display: var(--moon); }
+
+/* ================================================
+   ANIMASI & UTILITIES
+   ================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up.d1 { transition-delay: 0.1s; }
+.fade-up.d2 { transition-delay: 0.2s; }
+.fade-up.d3 { transition-delay: 0.3s; }
+.fade-up.d4 { transition-delay: 0.4s; }
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 960px) {
+  .about-photo-col {
+    width: 100px; min-width: 100px;
+    min-height: unset; height: 130px;
+    background: transparent; overflow: hidden;
+    flex-shrink: 0;
+    margin: 40px 0 0 20px;
+    align-items: flex-start;
+  }
+  .about-photo-col img {
+    width: 100px; height: 130px;
+    max-height: unset; object-fit: cover;
+    object-position: top; border-radius: 10px;
+    box-shadow: none;
+  }
+  .about-deco { display: none; }
+  .about-content {
+    flex: 1; min-width: 0;
+    padding: 40px 20px 0;
+    border-left: none; overflow-y: visible;
+  }
+  .about-detail { width: 100%; padding: 20px 20px 40px; }
+  #skills, #portfolio, #cv, #contact { padding: 72px 32px; }
+  #pendidikan { padding: 72px 32px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .cv-body { grid-template-columns: 1fr; }
+  .cv-top { padding: 28px; }
+}
+
+@media (max-width: 600px) {
+  .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .hero-name { letter-spacing: -2px; }
+  .cv-top { flex-direction: column; text-align: center; }
+  .cv-top-contacts { justify-content: center; }
+  .popup-body { padding: 20px 20px 24px; }
+  .popup-title { font-size: 20px; }
+  .proj-name { font-size: 12px; }
+  .proj-desc { font-size: 11px; line-height: 1.5; }
+  .proj-body { padding: 10px 12px 12px; }
+  .proj-thumb-ph { font-size: 32px; }
+  .proj-cat { font-size: 9px; padding: 2px 8px; }
+}
+
+@media (max-width: 480px) {
+  .bottom-nav { padding: 6px 8px; }
+  .bnav-btn { width: 34px; height: 36px; }
+  #root { gap: 4px; }
+  .hero-name {
+    font-size: clamp(28px, 9vw, 56px);
+    letter-spacing: -1px;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .hero-desc { font-size: 13px; padding: 0 16px; }
+  .hero-tagline { font-size: 13px; padding: 0 12px; }
+}
+
+@media (max-width: 360px) {
+  .bottom-nav { gap: 0; padding: 4px; }
+  .bnav-btn { width: 28px; }
+  .bnav-div { display: none; }
+  #root { gap: 2px; }
+  .language-switch { width: 58px; }
+  .language-switch::before { width: 23px; }
+  .language-switch.is-en::before { transform: translateX(27px); }
+}
+</style>
+</head>
+<body>
+
+<!-- =========== HOME =========== -->
+<section id="home">
+  <div class="hero-bg-img">
+    <img src="background web.jpeg" alt="Background Home">
+    <div class="hero-bg-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <h1 class="hero-name">Theodora <span class="dim">Ovrisa</span></h1>
+  </div>
+  <div class="hero-sub-wrap">
+    <p class="hero-nick">Theo</p>
+    <p class="hero-tagline">Calon <strong>Web Developer</strong> | Aspiring <strong>Fullstack Developer</strong></p>
+  </div>
+  <p class="hero-desc">
+    Halo! Saya adalah siswa SMK Negeri 7 Semarang jurusan Informasi Jaringan dan Aplikasi dengan minat di bidang web development.
+    Saat ini saya sedang mempelajari fullstack web development, mulai dari pengembangan tampilan (front-end) hingga pengelolaan sistem (back-end).
+    Saya memiliki semangat untuk terus belajar dan mengembangkan keterampilan di bidang teknologi.
+    Portofolio ini saya buat sebagai tempat untuk menampilkan hasil karya dan proses belajar saya.
+  </p>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- =========== ABOUT =========== -->
+<section id="about">
+  <div class="about-photo-col">
+    <div class="about-deco"></div>
+    <img src="foto teo.jpeg" alt="Foto About" class="about-photo-img">
+  </div>
+  <div class="about-content">
+    <div class="section-eyebrow fade-up">Tentang Saya</div>
+    <h2 class="section-title fade-up d1">Who I Am</h2>
+    <div class="about-divider fade-up d1"></div>
+    <div class="about-detail">
+      <div class="about-block fade-up d2">
+        <div class="about-block-label">Riwayat Keluarga</div>
+        <p class="about-block-text">Saya lahir di <strong>Semarang, 25 Januari 2009</strong> dan merupakan <strong>anak tunggal</strong>. Saya tumbuh dalam lingkungan keluarga yang selalu mendukung saya untuk belajar dan berkembang, khususnya di bidang teknologi.</p>
+      </div>
+      <div class="about-block fade-up d3">
+        <div class="about-block-label">Hobi</div>
+        <div class="about-tags">
+          <span class="about-tag">Coding</span>
+          <span class="about-tag">Desain Grafis</span>
+          <span class="about-tag">Mendengarkan &amp; Bermain Musik</span>
+          <span class="about-tag">Membaca Buku</span>
+          <span class="about-tag">Eksplorasi Hal Baru</span>
+        </div>
+      </div>
+      <div class="about-block fade-up d3">
+        <div class="about-block-label">Minat</div>
+        <div class="about-tags">
+          <span class="about-tag">Web Development</span>
+          <span class="about-tag">UI/UX Design</span>
+          <span class="about-tag">Mobile App</span>
+          <span class="about-tag">Networking</span>
+        </div>
+      </div>
+      <div class="about-block fade-up d4">
+        <div class="about-block-label">Cita-cita / Tujuan Karier</div>
+        <p class="about-block-text">Saya bercita-cita menjadi <strong>Fullstack Web Developer</strong> yang tidak hanya mampu membangun aplikasi, tetapi juga menciptakan solusi digital yang berdampak. Saat ini, saya berfokus untuk terus belajar dan mempersiapkan diri agar dapat mengikuti program <strong>magang di bidang teknologi</strong> sebagai langkah awal memasuki dunia industri.</p>
+      </div>
+      <div class="about-block fade-up d4">
+        <div class="about-block-label">Kelebihan Diri</div>
+        <div class="about-tags">
+          <span class="about-tag">Cepat Belajar</span>
+          <span class="about-tag">Teliti</span>
+          <span class="about-tag">Kreatif</span>
+          <span class="about-tag">Mampu Bekerja dalam Tim</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PENDIDIKAN =========== -->
+<section id="pendidikan">
+  <div class="edu-header">
+    <div class="section-eyebrow fade-up">Latar Belakang</div>
+    <h2 class="section-title center fade-up d1">Riwayat Pendidikan</h2>
+  </div>
+  <div class="edu-list">
+    <div class="edu-line"></div>
+    <div class="edu-item fade-up">
+      <div class="edu-left">
+        <div class="edu-dot"></div>
+        <div class="edu-year-badge">2024 – Skrg</div>
+      </div>
+      <div class="edu-right">
+        <h3>SMK Negeri 7 Semarang</h3>
+        <div class="edu-meta">
+          <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Jurusan Informasi Jaringan dan Aplikasi
+          <span class="edu-meta-dot"></span>
+          Semarang, Indonesia
+        </div>
+        <p class="edu-desc">Mempelajari dasar-dasar jaringan komputer, pemrograman, serta pengembangan teknologi informasi dengan fokus pada web development.</p>
+      </div>
+    </div>
+    <div class="edu-item fade-up d1">
+      <div class="edu-left">
+        <div class="edu-dot"></div>
+        <div class="edu-year-badge">2021 – 2024</div>
+      </div>
+      <div class="edu-right">
+        <h3>SMP <span class="placeholder-text">Negeri 2 Semarang</span></h3>
+        <div class="edu-meta">
+          <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Sekolah Menengah Pertama
+          <span class="edu-meta-dot"></span>
+          Semarang, Indonesia
+        </div>
+        <p class="edu-desc">Menyelesaikan pendidikan menengah pertama dengan baik serta mulai tertarik pada bidang teknologi.</p>
+      </div>
+    </div>
+    <div class="edu-item fade-up d2">
+      <div class="edu-left">
+        <div class="edu-dot"></div>
+        <div class="edu-year-badge">2015 – 2021</div>
+      </div>
+      <div class="edu-right">
+        <h3>SD <span class="placeholder-text">Negeri Sarirejo Kartini</span></h3>
+        <div class="edu-meta">
+          <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Sekolah Dasar
+          <span class="edu-meta-dot"></span>
+          Semarang, Indonesia
+        </div>
+        <p class="edu-desc">Menyelesaikan pendidikan dasar selama 6 tahun dengan hasil yang memuaskan.</p>
+      </div>
+    </div>
+    <div class="edu-item fade-up d3">
+      <div class="edu-left">
+        <div class="edu-dot"></div>
+        <div class="edu-year-badge">2013 – 2015</div>
+      </div>
+      <div class="edu-right">
+        <h3>TK <span class="placeholder-text">Tunas Harapan</span></h3>
+        <div class="edu-meta">
+          <svg width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Taman Kanak-kanak
+          <span class="edu-meta-dot"></span>
+          Semarang, Indonesia
+        </div>
+        <p class="edu-desc">Mengikuti pendidikan anak usia dini sebagai dasar pembentukan karakter dan kemampuan dasar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== SKILLS =========== -->
+<section id="skills">
+  <div class="skills-inner">
+    <div class="skills-header">
+      <div class="section-eyebrow fade-up">Kemampuan</div>
+      <h2 class="section-title center fade-up d1">Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cat-label">Web &amp; Programming</div>
+      <div class="skill-item fade-up">
+        <div class="skill-top"><span class="skill-name">HTML &amp; CSS</span><span class="skill-pct">80%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
+      </div>
+      <div class="skill-item fade-up d1">
+        <div class="skill-top"><span class="skill-name">JavaScript (Dasar)</span><span class="skill-pct">75%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="75"></div></div>
+      </div>
+      <div class="skill-item fade-up d1">
+        <div class="skill-top"><span class="skill-name">PHP (Dasar)</span><span class="skill-pct">50%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="50"></div></div>
+      </div>
+      <div class="skill-item fade-up d2">
+        <div class="skill-top"><span class="skill-name">MySQL (Dasar)</span><span class="skill-pct">55%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="55"></div></div>
+      </div>
+      <div class="skill-cat-label">Networking &amp; Tools</div>
+      <div class="skill-item fade-up">
+        <div class="skill-top"><span class="skill-name">Cisco Packet Tracer</span><span class="skill-pct">70%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="70"></div></div>
+      </div>
+      <div class="skill-item fade-up d1">
+        <div class="skill-top"><span class="skill-name">Linux (Dasar)</span><span class="skill-pct">50%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="50"></div></div>
+      </div>
+      <div class="skill-cat-label">Design &amp; Creative</div>
+      <div class="skill-item fade-up">
+        <div class="skill-top"><span class="skill-name">Canva</span><span class="skill-pct">80%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
+      </div>
+      <div class="skill-item fade-up d1">
+        <div class="skill-top"><span class="skill-name">Figma (Dasar)</span><span class="skill-pct">60%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="60"></div></div>
+      </div>
+      <div class="skill-item fade-up d2">
+        <div class="skill-top"><span class="skill-name">Video Editing</span><span class="skill-pct">65%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-pct="65"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PORTFOLIO =========== -->
+<section id="portfolio">
+  <div class="portfolio-inner">
+    <div class="portfolio-header">
+      <div class="section-eyebrow fade-up">Karya</div>
+      <h2 class="section-title center fade-up d1">Portfolio</h2>
+      <p class="section-sub fade-up d2">Berikut adalah beberapa karya yang saya kerjakan sebagai bagian dari proses belajar dan pengembangan keterampilan di berbagai bidang teknologi dan kreativitas.</p>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProj('all',this)">Semua</button>
+      <button class="filter-btn" onclick="filterProj('achievements',this)">Achievements</button>
+      <button class="filter-btn" onclick="filterProj('web',this)">Web</button>
+      <button class="filter-btn" onclick="filterProj('desain',this)">Desain</button>
+      <button class="filter-btn" onclick="filterProj('jaringan',this)">Jaringan</button>
+      <button class="filter-btn" onclick="filterProj('lainnya',this)">Lainnya</button>
+    </div>
+    <div class="portfolio-grid" id="projGrid">
+
+      <!-- ACHIEVEMENTS -->
+      <div class="proj-card" data-cat="achievements"
+          data-title="International Science and Invention Fair 2023"
+          data-desc="Mengikuti kompetisi internasional di bidang sains dan inovasi dengan mengembangkan proyek berbasis teknologi. Selain pembuatan konsep, juga melakukan praktik dan pengujian sederhana untuk mendukung hasil penelitian."
+          data-tech="Canva · Microsoft PowerPoint · Google Docs · Eksperimen/Laboratorium Dasar"
+          data-thumb=""
+          data-img="https://drive.google.com/thumbnail?id=1w64_FqiVUpaBBKgLi5snFC6FbapoMInB&sz=w800"
+          data-link="https://drive.google.com/file/d/1w64_FqiVUpaBBKgLi5snFC6FbapoMInB/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1w64_FqiVUpaBBKgLi5snFC6FbapoMInB&sz=w800" alt="ISIF 2023"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🏆</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">International Science and Invention Fair 2023</div>
+          <div class="proj-desc">Kompetisi internasional sains dan inovasi berbasis teknologi dengan praktik dan pengujian sederhana.</div>
+          <div class="proj-footer"><span class="proj-cat">Achievements</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="achievements"
+          data-title="International Science and Invention Fair 2024"
+          data-desc="Berpartisipasi dalam kompetisi internasional dengan pengembangan proyek yang lebih mendalam, termasuk proses riset, praktik, serta penyempurnaan hasil dan presentasi."
+          data-tech="Canva · PowerPoint · Google Docs · Eksperimen/Laboratorium"
+          data-thumb=""
+          data-img="https://drive.google.com/thumbnail?id=1u0upqrW2Ui2ina_1JrRkR5scz_2VFeWk&sz=w800"
+          data-link="https://drive.google.com/file/d/1u0upqrW2Ui2ina_1JrRkR5scz_2VFeWk/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1u0upqrW2Ui2ina_1JrRkR5scz_2VFeWk&sz=w800" alt="ISIF 2024"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🏆</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">International Science and Invention Fair 2024</div>
+          <div class="proj-desc">Kompetisi internasional dengan riset mendalam, praktik, dan penyempurnaan hasil presentasi.</div>
+          <div class="proj-footer"><span class="proj-cat">Achievements</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="achievements"
+          data-title="Indonesia International Applied Science Project Olympiad 2023"
+          data-desc="Mengembangkan proyek sains terapan dengan pendekatan berbasis teknologi, termasuk proses penelitian, praktik, serta analisis hasil untuk menyelesaikan suatu permasalahan."
+          data-tech="Canva · Microsoft Office · Google Docs · Praktik/Laboratorium"
+          data-thumb=""
+          data-img="https://drive.google.com/thumbnail?id=1sTyTRWbYfcMW6mlliRfFLFCv_HgBGFBW&sz=w800"
+          data-link="https://drive.google.com/file/d/1sTyTRWbYfcMW6mlliRfFLFCv_HgBGFBW/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1sTyTRWbYfcMW6mlliRfFLFCv_HgBGFBW&sz=w800" alt="IIASPO 2023"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🔬</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Indonesia International Applied Science Project Olympiad 2023</div>
+          <div class="proj-desc">Proyek sains terapan berbasis teknologi dengan penelitian, praktik, dan analisis hasil.</div>
+          <div class="proj-footer"><span class="proj-cat">Achievements</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="achievements"
+          data-title="Peserta Olimpiade IT ARA 7.0 ITS 2026"
+          data-desc="Berpartisipasi dalam kompetisi IT tingkat nasional yang diselenggarakan oleh ITS. Mengasah kemampuan di bidang teknologi informasi serta memperluas wawasan dan pengalaman kompetitif."
+          data-tech="HTML · CSS · JavaScript · Internet Resources"
+          data-thumb=""
+          data-img="https://drive.google.com/thumbnail?id=1PY42w-aWspUK192hjcAqRAgVFC__1NGi&sz=w800"
+          data-link="https://drive.google.com/file/d/1PY42w-aWspUK192hjcAqRAgVFC__1NGi/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1PY42w-aWspUK192hjcAqRAgVFC__1NGi&sz=w800" alt="ARA 7.0 ITS 2026"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">💻</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Peserta Olimpiade IT ARA 7.0 ITS 2026</div>
+          <div class="proj-desc">Kompetisi IT tingkat nasional oleh ITS untuk mengasah kemampuan teknologi informasi.</div>
+          <div class="proj-footer"><span class="proj-cat">Achievements</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="achievements"
+          data-title="Finalis PENS — Lomba Tingkat Nasional IoT & Networking 2025"
+          data-desc="Berhasil menjadi finalis dalam lomba tingkat nasional di bidang IoT dan jaringan. Mengembangkan solusi berbasis teknologi yang berfokus pada konektivitas dan efisiensi sistem."
+          data-tech="Cisco Packet Tracer · Linux · Networking Tools"
+          data-thumb=""
+          data-img="https://drive.google.com/thumbnail?id=10FlUB7Q06-deRlCQwZ09kJoESGnQDKwK&sz=w800"
+          data-link="https://drive.google.com/file/d/10FlUB7Q06-deRlCQwZ09kJoESGnQDKwK/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="https://drive.google.com/thumbnail?id=10FlUB7Q06-deRlCQwZ09kJoESGnQDKwK&sz=w800" alt="PENS IoT 2025"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🌐</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Finalis PENS — IoT &amp; Networking 2025</div>
+          <div class="proj-desc">Finalis lomba nasional IoT & Networking PENS dengan solusi konektivitas dan efisiensi sistem.</div>
+          <div class="proj-footer"><span class="proj-cat">Achievements</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="achievements"
+          data-title="Cisco IT Essentials 2025"
+          data-desc="Menyelesaikan pelatihan Cisco IT Essentials yang mencakup dasar-dasar perangkat keras komputer, sistem operasi, serta jaringan."
+          data-tech="Cisco Networking Academy · Virtual Lab"
+          data-thumb=""
+          data-img="https://drive.google.com/thumbnail?id=1sCZ7RxYV3hNfChK5iRQAMB03m9FKUj2p&sz=w800"
+          data-link="https://drive.google.com/file/d/1sCZ7RxYV3hNfChK5iRQAMB03m9FKUj2p/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1sCZ7RxYV3hNfChK5iRQAMB03m9FKUj2p&sz=w800" alt="Cisco IT Essentials 2025"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">📜</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Cisco IT Essentials 2025</div>
+          <div class="proj-desc">Pelatihan Cisco IT Essentials — hardware, sistem operasi, dan dasar-dasar jaringan komputer.</div>
+          <div class="proj-footer"><span class="proj-cat">Achievements</span></div>
+        </div>
+      </div>
+
+      <!-- WEB -->
+      <div class="proj-card" data-cat="web"
+          data-title="Edu Grafis"
+          data-desc="Website edukasi grafis yang menyajikan materi pembelajaran desain grafis secara interaktif dan menarik."
+          data-tech="HTML · CSS · JavaScript"
+          data-thumb=""
+          data-img="assets/edu-grafis.png"
+          data-link="https://edu-grafiss.vercel.app/"
+          data-link-type="web">
+        <div class="proj-thumb"><img src="assets/edu-grafis.png" alt="Edu Grafis"></div>
+        <div class="proj-body">
+          <div class="proj-name">Edu Grafis</div>
+          <div class="proj-desc">Website edukasi grafis dengan materi pembelajaran desain yang interaktif dan menarik.</div>
+          <div class="proj-footer"><span class="proj-cat">Web</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="web"
+          data-title="Web Birthday"
+          data-desc="Website ucapan ulang tahun yang dibuat dengan tampilan yang menarik dan interaktif sebagai hadiah digital yang berkesan."
+          data-tech="HTML · CSS · JavaScript"
+          data-thumb=""
+          data-img="assets/web-birthday.png"
+          data-link="https://bdaysmasbie.vercel.app/"
+          data-link-type="web">
+        <div class="proj-thumb"><img src="assets/web-birthday.png" alt="Web Birthday"></div>
+        <div class="proj-body">
+          <div class="proj-name">Web Birthday</div>
+          <div class="proj-desc">Website ucapan ulang tahun interaktif sebagai hadiah digital yang berkesan.</div>
+          <div class="proj-footer"><span class="proj-cat">Web</span></div>
+        </div>
+      </div>
+
+      <!-- DESAIN -->
+      <div class="proj-card" data-cat="desain"
+          data-title="Desain UI/UX Aplikasi SORAI"
+          data-desc="Desain UI/UX aplikasi SORAI untuk pengelolaan sampah berbasis digital. Mencakup wireframe, mockup, dan prototype interaktif yang berfokus pada kemudahan pengguna."
+          data-tech="Figma"
+          data-thumb=""
+          data-img="assets/sorai.png"
+          data-link="https://drive.google.com/file/d/17SrwV1ZmOzA_LQPCOIUOSjzMArhLkoSJ/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb"><img src="assets/sorai.png" alt="SORAI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none"></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Desain UI/UX Aplikasi SORAI</div>
+          <div class="proj-desc">Desain UI/UX aplikasi pengelolaan sampah berbasis digital dengan prototype interaktif.</div>
+          <div class="proj-footer"><span class="proj-cat">Desain</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="desain"
+          data-title="UI/UX Website Portfolio Pribadi"
+          data-desc="Desain dan pengembangan UI/UX website portfolio pribadi. Mencakup proses desain di Figma hingga implementasi front-end yang responsif dan modern."
+          data-tech="Figma · HTML · CSS"
+          data-thumb=""
+          data-img="assets/portfolio-uiux.png"
+          data-link="https://drive.google.com/file/d/17SrwV1ZmOzA_LQPCOIUOSjzMArhLkoSJ/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="assets/portfolio-uiux.png" alt="Portfolio UI/UX" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🖌️</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">UI/UX Website Portfolio Pribadi</div>
+          <div class="proj-desc">Desain dan pengembangan UI/UX website portfolio pribadi yang responsif dan modern.</div>
+          <div class="proj-footer"><span class="proj-cat">Desain</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="desain"
+          data-title="Custom Cup Design"
+          data-desc="Desain produk kreatif berupa custom cup dengan konsep visual yang unik dan menarik. Dibuat sebagai karya desain produk yang memadukan estetika dan fungsi."
+          data-tech="Canva"
+          data-thumb=""
+          data-img="assets/custom-cup.png"
+          data-link="https://drive.google.com/file/d/1AMl9EmQFNzMnJNUqeecGhxmiCZ-nGv9Z/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="assets/custom-cup.png" alt="Custom Cup" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">☕</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Custom Cup Design</div>
+          <div class="proj-desc">Desain produk kreatif custom cup dengan konsep visual yang unik dan menarik.</div>
+          <div class="proj-footer"><span class="proj-cat">Desain</span></div>
+        </div>
+      </div>
+
+      <!-- JARINGAN -->
+      <div class="proj-card" data-cat="jaringan"
+          data-title="Routing Dynamic OSPF"
+          data-desc="Implementasi routing dinamis menggunakan protokol OSPF (Open Shortest Path First) untuk menghubungkan beberapa jaringan secara otomatis dan efisien."
+          data-tech="Mikrotik · RouterOS"
+          data-thumb=""
+          data-img="assets/ospf.png"
+          data-link="https://drive.google.com/file/d/1Eja9OJFaCuTgpUJZR77xu5K7JksOnmst/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="assets/ospf.png" alt="OSPF" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">📡</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Routing Dynamic OSPF</div>
+          <div class="proj-desc">Implementasi routing dinamis OSPF untuk menghubungkan beberapa jaringan secara otomatis.</div>
+          <div class="proj-footer"><span class="proj-cat">Jaringan</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="jaringan"
+          data-title="Konfigurasi BGP 3 Router Mikrotik"
+          data-desc="Konfigurasi routing dinamis Border Gateway Protocol (BGP) menggunakan 3 router dengan RouterBoard Mikrotik untuk menghubungkan antar jaringan yang berbeda."
+          data-tech="Mikrotik · RouterBoard · BGP"
+          data-thumb=""
+          data-img="assets/bgp-mikrotik.png"
+          data-link="https://drive.google.com/file/d/1n0ZFjatyc14isgsoLtRWVB8nMzjNnzhy/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="assets/bgp-mikrotik.png" alt="BGP Mikrotik" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🔌</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Konfigurasi BGP 3 Router Mikrotik</div>
+          <div class="proj-desc">Konfigurasi routing dinamis BGP dengan 3 RouterBoard Mikrotik antar jaringan berbeda.</div>
+          <div class="proj-footer"><span class="proj-cat">Jaringan</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="jaringan"
+          data-title="Routing Dynamic BGP"
+          data-desc="Implementasi routing dinamis Border Gateway Protocol (BGP) untuk menghubungkan beberapa autonomous system dalam jaringan yang lebih kompleks."
+          data-tech="Mikrotik · RouterOS · BGP"
+          data-thumb=""
+          data-img="assets/bgp.png"
+          data-link="https://drive.google.com/file/d/1k5QBEcYeuQJc1LX8pJ0eKcNA_rHEM5ts/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="assets/bgp.png" alt="BGP" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🌐</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Routing Dynamic BGP</div>
+          <div class="proj-desc">Implementasi routing dinamis BGP untuk menghubungkan beberapa autonomous system.</div>
+          <div class="proj-footer"><span class="proj-cat">Jaringan</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="jaringan"
+          data-title="Konfigurasi Routing Dinamis 3 Router Mikrotik"
+          data-desc="Konfigurasi routing dinamis menggunakan 3 router dengan RouterBoard Mikrotik untuk membangun jaringan yang saling terhubung secara otomatis dan efisien."
+          data-tech="Mikrotik · RouterBoard · RouterOS"
+          data-thumb=""
+          data-img="assets/routing-mikrotik.png"
+          data-link="https://drive.google.com/file/d/1OlY0pSGihUs-ZocGKsxbcT_1-iWLjZbc/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="assets/routing-mikrotik.png" alt="Routing Mikrotik" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🖥️</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Konfigurasi Routing Dinamis 3 Router Mikrotik</div>
+          <div class="proj-desc">Konfigurasi routing dinamis 3 RouterBoard Mikrotik untuk jaringan yang terhubung otomatis.</div>
+          <div class="proj-footer"><span class="proj-cat">Jaringan</span></div>
+        </div>
+      </div>
+
+      <!-- LAINNYA -->
+      <div class="proj-card" data-cat="lainnya"
+          data-title="Innovating Egg Shells and Spinach Stems as A Way to Reduce Food Waste"
+          data-desc="Karya ilmiah tentang inovasi pemanfaatan cangkang telur dan batang bayam untuk mengurangi limbah makanan sekaligus menambah nilai gizi pada dessert Panacotta ramah anak."
+          data-tech="Penelitian · Karya Ilmiah"
+          data-thumb=""
+          data-img="assets/egg-spinach.png"
+          data-link="https://drive.google.com/file/d/1YINJPxfRH4gSLfwV4FuPXJOMlntWv0Rd/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="assets/egg-spinach.png" alt="Egg Spinach" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🥚</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Innovating Egg Shells &amp; Spinach Stems to Reduce Food Waste</div>
+          <div class="proj-desc">Inovasi cangkang telur dan batang bayam sebagai solusi food waste dengan nilai gizi tinggi.</div>
+          <div class="proj-footer"><span class="proj-cat">Lainnya</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="lainnya"
+          data-title="Innovation of Egg Shells, Spinach Stems and Butterfly Pea Flowers"
+          data-desc="Karya ilmiah tentang inovasi pemanfaatan cangkang telur, batang bayam, dan bunga telang sebagai solusi kreatif untuk mengurangi limbah makanan (food waste) dan meningkatkan nutrisi untuk mengurangi stunting."
+          data-tech="Penelitian · Karya Ilmiah"
+          data-thumb=""
+          data-img="assets/egg-shells.png"
+          data-link="https://drive.google.com/file/d/1GSBA3y-yEZyBGjEiTZdN7JhEbpEvpV1G/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="assets/egg-shells.png" alt="Egg Shells" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🌿</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Innovation of Egg Shells, Spinach &amp; Butterfly Pea Flowers</div>
+          <div class="proj-desc">Inovasi pemanfaatan limbah bahan makanan untuk mengurangi food waste dan stunting.</div>
+          <div class="proj-footer"><span class="proj-cat">Lainnya</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="lainnya"
+          data-title="Smart Food Safety Detector"
+          data-desc="Proyek Smart Food Safety Detector sebagai solusi inovatif untuk pencegahan keracunan makanan menggunakan teknologi pendeteksi keamanan pangan berbasis smart system."
+          data-tech="IoT · Penelitian · Karya Ilmiah"
+          data-thumb=""
+          data-img="assets/food-safety.png"
+          data-link="https://drive.google.com/file/d/1j0YfJEir4FTF4O2pz-6gvZXi2rGAK4-t/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="assets/food-safety.png" alt="Food Safety" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🔬</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">Smart Food Safety Detector</div>
+          <div class="proj-desc">Solusi inovatif pencegahan keracunan makanan berbasis smart system.</div>
+          <div class="proj-footer"><span class="proj-cat">Lainnya</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="lainnya"
+          data-title="PATRIOT — Perangkat Pendeteksi Keamanan Makanan Berbasis IoT"
+          data-desc="Proyek FTR SMKN 7 Semarang berupa perangkat pendeteksi keamanan makanan berbasis IoT (PATRIOT) sebagai sistem monitoring cerdas untuk mencegah bahaya keracunan makanan."
+          data-tech="IoT · FTR · Sistem Monitoring"
+          data-thumb=""
+          data-img="assets/patriot.png"
+          data-link="https://drive.google.com/file/d/1PeyQLw1BTmAWYcfiNAETvOJeHAHmvuGk/view?usp=drive_link"
+          data-link-type="drive">
+        <div class="proj-thumb">
+          <img src="assets/patriot.png" alt="PATRIOT" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-ph" style="display:none">🛡️</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-name">PATRIOT — Perangkat Pendeteksi Keamanan Makanan Berbasis IoT</div>
+          <div class="proj-desc">Sistem monitoring cerdas berbasis IoT untuk mendeteksi keamanan makanan.</div>
+          <div class="proj-footer"><span class="proj-cat">Lainnya</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========== POPUP MODAL =========== -->
+<div class="popup-overlay" id="popupOverlay" onclick="closePopupOutside(event)">
+  <div class="popup-modal" id="popupModal">
+    <button class="popup-close" onclick="closePopup()">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="popup-thumb" id="popupThumb"></div>
+    <div class="popup-body">
+      <div class="popup-cat-badge" id="popupCat"></div>
+      <h3 class="popup-title" id="popupTitle"></h3>
+      <p class="popup-desc" id="popupDesc"></p>
+      <div class="popup-tech-wrap">
+        <div class="popup-tech-label">Tech / Tools</div>
+        <div class="popup-tech" id="popupTech"></div>
+      </div>
+      <a class="popup-action-btn" id="popupBtn" href="#" target="_blank">
+        <span id="popupBtnText">Lihat Karya</span>
+        <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- =========== CV =========== -->
+<section id="cv">
+  <div class="cv-inner">
+    <div class="cv-header-section">
+      <div class="section-eyebrow fade-up">Curriculum Vitae</div>
+      <h2 class="section-title center fade-up d1">CV</h2>
+    </div>
+    <div class="cv-download-wrap fade-up d2">
+      <p class="cv-download-hint">Unduh CV saya dalam format PDF</p>
+      <a class="cv-download-btn" href="assets/CV WEB THEODORA.png" download="CV WEB THEODORA.png">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Unduh CV (PDF)
+      </a>
+    </div>
+    <div class="cv-card fade-up">
+      <div class="cv-top">
+        <div class="cv-avatar">
+          <img src="foto teo.jpeg" alt="Foto CV" style="display:block; width:100%; height:100%; object-fit:cover; object-position:60% top;">
+          <span class="cv-avatar-ph" style="display:none">🧑‍💻</span>
+        </div>
+        <div>
+          <div class="cv-top-name">Theodora Ovrisa Ersalina</div>
+          <div class="cv-top-role">Siswa SMK N 7 SEMARANG — Sistem Informasi Jaringan dan Aplikasi</div>
+          <div class="cv-top-contacts">
+            <span class="cv-top-contact">
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+              ovrisatheodora@gmail.com
+            </span>
+            <span class="cv-top-contact">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.69A2 2 0 012.18 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 9.1a16 16 0 006 6l1.46-1.46a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              0898 - 3930 - 103
+            </span>
+            <span class="cv-top-contact">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Jl. Kp. Gebang Anom No.120 Rt.1/Rw.1 Kota Semarang, Jawa Tengah
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="cv-body">
+        <div class="cv-col">
+          <div class="cv-section">
+            <div class="cv-section-title">Data Pribadi</div>
+            <div class="cv-row"><div class="cv-row-label">Nama Lengkap</div><div class="cv-row-val">Theodora Ovrisa Ersalina</div></div>
+            <div class="cv-row"><div class="cv-row-label">Tempat, Tanggal Lahir</div><div class="cv-row-val">Semarang, 25 Januari 2009</div></div>
+            <div class="cv-row"><div class="cv-row-label">Jenis Kelamin</div><div class="cv-row-val">Perempuan</div></div>
+            <div class="cv-row"><div class="cv-row-label">Agama</div><div class="cv-row-val">Katolik</div></div>
+            <div class="cv-row"><div class="cv-row-label">Alamat</div><div class="cv-row-val">Semarang, Jawa Tengah</div></div>
+            <div class="cv-row"><div class="cv-row-label">No. HP / WhatsApp</div><div class="cv-row-val">0898 - 3930 - 103</div></div>
+            <div class="cv-row"><div class="cv-row-label">Email</div><div class="cv-row-val">ovrisatheodora@gmail.com</div></div>
+          </div>
+          <div class="cv-section">
+            <div class="cv-section-title">Skills</div>
+            <div class="cv-skill-item">
+              <div class="cv-skill-row"><span class="cv-skill-name">HTML &amp; CSS</span><span class="cv-skill-pct">80%</span></div>
+              <div class="cv-skill-track"><div class="cv-skill-fill" data-pct="80"></div></div>
+            </div>
+            <div class="cv-skill-item">
+              <div class="cv-skill-row"><span class="cv-skill-name">JavaScript</span><span class="cv-skill-pct">75%</span></div>
+              <div class="cv-skill-track"><div class="cv-skill-fill" data-pct="75"></div></div>
+            </div>
+            <div class="cv-skill-item">
+              <div class="cv-skill-row"><span class="cv-skill-name">Canva</span><span class="cv-skill-pct">80%</span></div>
+              <div class="cv-skill-track"><div class="cv-skill-fill" data-pct="80"></div></div>
+            </div>
+            <div class="cv-skill-item">
+              <div class="cv-skill-row"><span class="cv-skill-name">Figma</span><span class="cv-skill-pct">60%</span></div>
+              <div class="cv-skill-track"><div class="cv-skill-fill" data-pct="60"></div></div>
+            </div>
+            <div class="cv-skill-item">
+              <div class="cv-skill-row"><span class="cv-skill-name">Mikrotik</span><span class="cv-skill-pct">70%</span></div>
+              <div class="cv-skill-track"><div class="cv-skill-fill" data-pct="70"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="cv-col">
+          <div class="cv-section">
+            <div class="cv-section-title">Pendidikan</div>
+            <div class="cv-edu-item">
+              <div class="cv-edu-year">2024 – Sekarang</div>
+              <div class="cv-edu-name">SMK Negeri 7 Semarang</div>
+              <div class="cv-edu-sub">Jurusan Sistem Informasi Jaringan dan Aplikasi</div>
+            </div>
+            <div class="cv-edu-item">
+              <div class="cv-edu-year">2021 – 2024</div>
+              <div class="cv-edu-name">SMP Negeri 2 Semarang</div>
+            </div>
+            <div class="cv-edu-item">
+              <div class="cv-edu-year">2015 – 2021</div>
+              <div class="cv-edu-name">SD Negeri Sarirejo Kartini</div>
+            </div>
+            <div class="cv-edu-item">
+              <div class="cv-edu-year">2013 – 2015</div>
+              <div class="cv-edu-name">TK Tunas Harapan</div>
+            </div>
+          </div>
+          <div class="cv-section">
+            <div class="cv-section-title">Pengalaman / Karya Ilmiah</div>
+            <div class="cv-exp-item">
+              <div class="cv-exp-year">2023</div>
+              <div class="cv-exp-title">Innovating Egg Shells and Spinach Stems as A Way to Reduce Food Waste</div>
+              <div class="cv-exp-sub">Karya Ilmiah — Adding Nutritional Value to A Kids Friendly Panacotta</div>
+            </div>
+            <div class="cv-exp-item">
+              <div class="cv-exp-year">2024</div>
+              <div class="cv-exp-title">Innovation of Egg Shells, Spinach Stems and Butterfly Pea Flowers</div>
+              <div class="cv-exp-sub">Karya Ilmiah — Reduce Food Waste &amp; Increase Nutrition to Reduce Stunting Rates with Panacotta</div>
+            </div>
+            <div class="cv-exp-item">
+              <div class="cv-exp-year">2025</div>
+              <div class="cv-exp-title">IT Essentials</div>
+              <div class="cv-exp-sub">Kursus — Cisco Networking Academy</div>
+            </div>
+            <div class="cv-exp-item">
+              <div class="cv-exp-year">2025</div>
+              <div class="cv-exp-title">Smart Food Safety Detector</div>
+              <div class="cv-exp-sub">Internet of Things — Pencegahan Keracunan Makanan</div>
+            </div>
+            <div class="cv-exp-item">
+              <div class="cv-exp-year">2026</div>
+              <div class="cv-exp-title">PATRIOT — Perangkat Pendeteksi Keamanan Makanan Berbasis IoT</div>
+              <div class="cv-exp-sub">FTR &amp; Sistem Pengukuran dan Monitoring Cerdas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CONTACT =========== -->
+<section id="contact">
+  <div class="contact-eyebrow fade-up">Hubungi Saya</div>
+  <h2 class="contact-title fade-up d1">Let's <span class="outline">Connect</span></h2>
+  <p class="contact-body fade-up d2">
+    Interested in collaborating or have any questions?<br>Feel free to reach out — I'd love to connect!
+  </p>
+  <div class="contact-links fade-up d3">
+    <a class="contact-link" href="mailto:ovrisatheodora@gmail.com">
+      <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+      ovrisatheodora@gmail.com
+    </a>
+    <a class="contact-link" href="https://www.linkedin.com/in/theodora-ovrisa-7221743b0" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a class="contact-link" href="https://github.com/ovrisatheodora-ctrl" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+      GitHub
+    </a>
+    <a class="contact-link" href="https://www.instagram.com/theodoraovri" target="_blank">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      Instagram
+    </a>
+  </div>
+</section>
+
+<!-- =========== BOTTOM NAV =========== -->
+<nav class="bottom-nav">
+  <button class="bnav-btn active" onclick="goTo('home')" title="Home">
+    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+  </button>
+  <button class="bnav-btn" onclick="goTo('about')" title="About">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+  </button>
+  <button class="bnav-btn" onclick="goTo('pendidikan')" title="Pendidikan">
+    <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+  </button>
+  <button class="bnav-btn" onclick="goTo('skills')" title="Skills">
+    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+  </button>
+  <button class="bnav-btn" onclick="goTo('portfolio')" title="Portfolio">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+  </button>
+  <button class="bnav-btn" onclick="goTo('cv')" title="CV">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+  </button>
+  <div class="bnav-div"></div>
+  <button class="bnav-btn" onclick="toggleTheme()" title="Ganti Tema" aria-label="Ganti Tema">
+    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+  </button>
+  <div id="root"></div>
+</nav>
+
+<script>
+/* ================================================
+   MARQUEE
+   ================================================ */
+const marqueeSkills = [
+  'HTML & CSS', 'JavaScript', 'Canva', 'Cisco Packet Tracer',
+  'Figma', 'PHP', 'MySQL', 'Video Editing', 'UI/UX', 'Next.js', 'TypeScript'
+];
+
+const marqueeTrack = document.getElementById('marqueeTrack');
+const marqueeItems = [...marqueeSkills, ...marqueeSkills, ...marqueeSkills, ...marqueeSkills];
+marqueeTrack.innerHTML = marqueeItems
+  .map(t => `<span class="marquee-item"><span class="marquee-dot"></span>${t}</span>`)
+  .join('');
+
+/* ================================================
+   SMOOTH SCROLL
+   ================================================ */
+function goTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+/* ================================================
+   SCROLL REVEAL
+   ================================================ */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up, .proj-card').forEach(el => revealObserver.observe(el));
+
+document.querySelectorAll('.proj-card').forEach((card, i) => {
+  card.style.transitionDelay = (i * 0.08) + 's';
+  card.addEventListener('click', () => openPopup(card));
+});
+
+/* ================================================
+   SKILL BARS
+   ================================================ */
+const skillBarObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.skill-fill, .cv-skill-fill').forEach(bar => {
+        bar.style.width = (bar.dataset.pct || 0) + '%';
+      });
+      skillBarObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('#skills, #cv').forEach(section => skillBarObserver.observe(section));
+
+/* ================================================
+   PROJECT FILTER
+   ================================================ */
+function filterProj(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  document.querySelectorAll('.proj-card').forEach(card => {
+    const match = cat === 'all' || card.dataset.cat === cat;
+    if (match) {
+      card.style.display = '';
+      requestAnimationFrame(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      });
+    } else {
+      card.style.opacity = '0';
+      card.style.transform = 'scale(0.95)';
+      setTimeout(() => { card.style.display = 'none'; }, 260);
+    }
+  });
+}
+
+/* ================================================
+   POPUP MODAL
+   ================================================ */
+function openPopup(card) {
+  window.activeProjectCard = card;
+  const overlay  = document.getElementById('popupOverlay');
+  const title    = card.dataset.title    || '';
+  const desc     = card.dataset.desc     || '';
+  const tech     = card.dataset.tech     || '';
+  const thumb    = card.dataset.thumb    || '📁';
+  const link     = card.dataset.link     || '#';
+  const cat      = card.dataset.cat      || '';
+  const linkType = card.dataset.linkType || 'drive';
+  const imgUrl   = card.dataset.img      || '';
+
+  const popupThumb = document.getElementById('popupThumb');
+  if (imgUrl) {
+    popupThumb.innerHTML = `<img src="${imgUrl}" alt="${title}" style="width:100%;height:100%;object-fit:cover;object-position:top;">`;
+  } else {
+    popupThumb.innerHTML = `<span style="font-size:80px">${thumb}</span>`;
+  }
+
+  document.getElementById('popupTitle').textContent = title;
+  document.getElementById('popupDesc').textContent  = desc;
+  const categoryLabels = document.documentElement.lang === 'en'
+    ? { desain: 'Design', jaringan: 'Networking', lainnya: 'Other' }
+    : { desain: 'Desain', jaringan: 'Jaringan', lainnya: 'Lainnya' };
+  document.getElementById('popupCat').textContent   = categoryLabels[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+
+  const techContainer = document.getElementById('popupTech');
+  techContainer.innerHTML = tech
+    .split('·')
+    .map(t => t.trim())
+    .filter(Boolean)
+    .map(t => `<span class="popup-tech-tag">${t}</span>`)
+    .join('');
+
+  const btn     = document.getElementById('popupBtn');
+  const btnText = document.getElementById('popupBtnText');
+  btn.href = link;
+  btnText.textContent = document.documentElement.lang === 'en'
+    ? (linkType === 'web' ? 'Visit Website' : 'View on Google Drive')
+    : (linkType === 'web' ? 'Kunjungi Website' : 'Lihat di Google Drive');
+
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+window.addEventListener('portfolio-language-change', () => {
+  const overlay = document.getElementById('popupOverlay');
+  if (overlay.classList.contains('active') && window.activeProjectCard) {
+    openPopup(window.activeProjectCard);
+  }
+});
+
+function closePopup() {
+  document.getElementById('popupOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closePopupOutside(e) {
+  if (e.target === document.getElementById('popupOverlay')) closePopup();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+
+/* ================================================
+   ACTIVE NAV
+   ================================================ */
+const sectionIds = ['home', 'about', 'pendidikan', 'skills', 'portfolio', 'cv', 'contact'];
+const bnavBtns   = document.querySelectorAll('.bnav-btn');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 200;
+  let activeIndex = 0;
+  sectionIds.forEach((id, i) => {
+    const section = document.getElementById(id);
+    if (section && scrollY >= section.offsetTop) activeIndex = i;
+  });
+  bnavBtns.forEach((btn, i) => {
+    if (i < 6) btn.classList.toggle('active', i === Math.min(activeIndex, 5));
+  });
+}, { passive: true });
+
+/* ================================================
+   ABOUT PHOTO REVEAL
+   ================================================ */
+const aboutImg = document.querySelector('.about-photo-col img');
+if (aboutImg) {
+  const fotoObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => aboutImg.classList.add('foto-visible'), 200);
+        fotoObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  fotoObserver.observe(aboutImg);
+}
+</script>
+</body>
 </html>
